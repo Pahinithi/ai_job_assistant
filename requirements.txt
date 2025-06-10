@@ -1,0 +1,10 @@
+openai
+pydantic
+pydantic-settings
+fastapi[standard]
+requests
+crawl4ai[all]
+requests
+pycountry
+streamlit
+werkzeug
