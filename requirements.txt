@@ -1,10 +1,9 @@
-openai
-pydantic
-pydantic-settings
-fastapi[standard]
-requests
-crawl4ai[all]
-requests
-pycountry
-streamlit
-werkzeug
+openai==1.82.0
+pydantic==2.11.5
+pydantic-settings==2.9.1
+fastapi[standard]==0.115.12
+requests==2.32.3
+crawl4ai[all]==0.6.3
+pycountry==24.6.1
+streamlit== 1.45.1
+werkzeug==3.1.3
