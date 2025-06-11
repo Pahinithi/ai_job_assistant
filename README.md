@@ -65,20 +65,27 @@ ai-jobgenie/
 ├── app/
 │   ├── frontend/
 │   │   └── streamlit_app.py
-│   ├── api/
-│   │   ├── routes/
-│   │   └── models/
-│   ├── core/
-│   │   ├── config.py
-│   │   └── security.py
-│   └── main.py
+│   ├── mail/
+│   │   └── routes.py
+│   ├── page/
+│   ├── utlits/
+│   │   ├── openai_functions.py
+│   │   └── openai_response_schemas.py
+│   ├── database/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── routes.py
+│   └── settings.py
 ├── database/
-│   ├── models.py
-│   └── operations.py
 ├── docs/
-│   └── developer-documentation.md
-├── tests/
+│   ├── developer-documentation.md
+│   └── user-documentation.md
 ├── uploads/
+├── .dockerignore
+├── .gitignore
+├── Dockerfile
+├── docker-compose.yml
+├── docker-compose (sample).yml
 ├── requirements.txt
 ├── start.sh
 └── README.md
