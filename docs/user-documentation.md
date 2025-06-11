@@ -7,6 +7,7 @@
 4. User Guide
 5. Troubleshooting
 6. FAQ
+7. Docker Setup Guide
 
 ## 1. Introduction
 
@@ -153,4 +154,83 @@ Yes, you can delete your account in the settings menu. Note that this action is 
 Job listings are updated in real-time from various sources.
 
 #### Can I apply to jobs outside the platform?
-Yes, you can track applications made outside the platform by adding them manually. 
+Yes, you can track applications made outside the platform by adding them manually.
+
+## 7. Docker Setup Guide
+
+### Quick Start with Docker
+
+1. **Install Docker**
+   - Download and install Docker Desktop from [docker.com](https://www.docker.com/products/docker-desktop)
+   - Ensure Docker is running on your system
+
+2. **Run the Application**
+   ```bash
+   # Start the application
+   docker-compose up
+   ```
+
+3. **Access the Application**
+   - Open your web browser
+   - Go to http://localhost:8501
+   - The application will be ready to use
+
+### Stopping the Application
+```bash
+# Stop the application
+docker-compose down
+```
+
+### Common Docker Commands
+
+1. **View Application Status**
+   ```bash
+   # Check if containers are running
+   docker-compose ps
+   ```
+
+2. **View Logs**
+   ```bash
+   # View application logs
+   docker-compose logs
+   ```
+
+### Troubleshooting Docker
+
+1. **Application Not Starting**
+   - Ensure Docker is running
+   - Check if ports 8000 and 8501 are available
+   - Verify your environment variables
+
+2. **Cannot Access Application**
+   - Check if containers are running
+   - Verify you're using the correct URL
+   - Check application logs for errors
+
+3. **Container Issues**
+   - Restart the containers:
+     ```bash
+     docker-compose down
+     docker-compose up
+     ```
+
+### System Requirements for Docker
+
+- Docker Desktop installed
+- At least 4GB RAM
+- 10GB free disk space
+- Internet connection for pulling images
+
+### Security Notes
+
+- Keep your Docker installation updated
+- Don't share your environment files
+- Use strong passwords for all services
+- Regularly check for container updates 
+
+
+## Contact
+
+For any questions or support, please contact:
+- Developer: Nithilan Pahirathan
+- Email: nithilan32@gmail.com

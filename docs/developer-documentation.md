@@ -8,6 +8,7 @@
 5. Setup and Installation
 6. API Documentation
 7. Deployment Guide
+8. Docker Guide
 
 ## 1. Project Overview
 
@@ -174,12 +175,109 @@ streamlit run app/frontend/streamlit_app.py
 3. Deploy using Docker
 4. Set up reverse proxy (Nginx/Apache)
 
+## 8. Docker Guide
+
+### Prerequisites
+- Docker
+- Docker Compose
+
+### Docker Setup
+
+1. Build and run using Docker Compose:
+```bash
+# Build and start all services
+docker-compose up --build
+
+# Run in detached mode
+docker-compose up -d
+
+# Stop all services
+docker-compose down
+```
+
+2. Access the services:
+- Streamlit Frontend: http://localhost:8501
+- FastAPI Backend: http://localhost:8000
+- API Documentation: http://localhost:8000/docs
+
+### Docker Services
+
+The application runs two main services:
+
+1. **API Service (FastAPI)**
+   - Port: 8000
+   - Handles all backend operations
+   - Includes API endpoints and business logic
+
+2. **Frontend Service (Streamlit)**
+   - Port: 8501
+   - Provides the user interface
+   - Communicates with the API service
+
+### Environment Variables
+
+1. **Sample Docker Compose File**
+   - A sample docker-compose file is provided as `docker-compose (sample).yml`
+   - Rename it to `docker-compose.yml` before use
+   - Update the environment variables with your actual values
+
+2. **Environment Variables Template**
+   Create a `.env` file with the following structure:
+   ```bash
+   # OpenAI Configuration
+   OPENAI_API_KEY=your_openai_api_key_here
+
+   # Email Configuration
+   SMTP_SERVER=smtp.gmail.com
+   SMTP_PORT=587
+   EMAIL_USERNAME=your_email_here
+   EMAIL_PASSWORD=your_app_password_here
+   ```
+
+   Note: Replace the placeholder values with your actual credentials.
+
+3. **Security Note**
+   - Never commit the actual `docker-compose.yml` or `.env` files to version control
+   - Keep the sample file as a template for other developers
+   - Share sensitive credentials through secure channels
+
+### Development with Docker
+
+1. **Viewing Logs**
+```bash
+# View all logs
+docker-compose logs
+
+# View specific service logs
+docker-compose logs api
+docker-compose logs frontend
+
+# Follow logs in real-time
+docker-compose logs -f
+```
+
+2. **Rebuilding Services**
+```bash
+# Rebuild specific service
+docker-compose build api
+docker-compose build frontend
+
+# Rebuild all services
+docker-compose build
+```
+
+### Security Considerations
+
+1. **Environment Variables**
+   - Never commit sensitive data in docker-compose files
+   - Use Docker secrets for production
+   - Keep API keys and passwords secure
+
 ## Contact
 
 For any questions or support, please contact:
 - Developer: Nithilan Pahirathan
 - Email: nithilan32@gmail.com
-- GitHub: https://github.com/Pahinithi
 
 ## Database Management
 

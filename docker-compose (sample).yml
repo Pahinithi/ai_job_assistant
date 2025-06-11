@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=<your-openai-api-key>  # ex: sk-...
+      - SMTP_SERVER=<your-smtp-server>        # ex: smtp.gmail.com
+      - SMTP_PORT=<your-smtp-port>            # ex: 587
+      - EMAIL_USERNAME=<your-email>           # ex: your.email@gmail.com
+      - EMAIL_PASSWORD=<your-email-password>  # ex: app-specific-password
+    volumes:
+      - .:/code
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - OPENAI_API_KEY=<your-openai-api-key>  # ex: sk-...
+      - SMTP_SERVER=<your-smtp-server>        # ex: smtp.gmail.com
+      - SMTP_PORT=<your-smtp-port>            # ex: 587
+      - EMAIL_USERNAME=<your-email>           # ex: your.email@gmail.com
+      - EMAIL_PASSWORD=<your-email-password>  # ex: app-specific-password
+    volumes:
+      - .:/code
+    command: streamlit run app/frontend/streamlit_app.py --server.port=8501 --server.address=0.0.0.0
+    depends_on:
+      - api

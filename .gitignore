@@ -178,6 +178,8 @@ cython_debug/
 upload/
 *.pdf
 
-
 # Ignore database files
 *.db
+
+# Ignore docker-compose files
+docker-compose.yml
